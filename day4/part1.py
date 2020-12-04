@@ -1,15 +1,26 @@
+from enum import Enum
+
+class Categories(Enum):
+    byr = 'byr'
+    iyr = 'iyr'
+    eyr = 'eyr'
+    hgt = 'hgt'
+    hcl = 'hcl'
+    ecl = 'ecl'
+    pid = 'pid' 
+
 # Add 2 newlines to 'input' for easier processing
+
 f = open("input", "r")
 # f.close()
 def check_validity(p):
-    required = ['byr', 'iyr', 'eyr', 'hgt', 'hcl', 'ecl', 'pid']
     passscore = 0
 
     for v in p: 
         x = v.split(":")
-
-        if (x[0] in required):
+        if (x[0] in [v.value for v in Categories.__members__.values()]):
             passscore += 1
+
     if (passscore == 7):
         return True
 
