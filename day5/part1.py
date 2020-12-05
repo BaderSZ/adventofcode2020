@@ -10,10 +10,15 @@ class Ticket(object):
     column = 0
     id     = 0
 
+
 class Range(object):
     def __init__(self, _range_):
         self.low =  _range_[0]
         self.high = _range_[1]
+    def max(self):
+        return max([self.low, self.high])
+    def min(self):
+        return min([self.low, self.high])
 
 
 f = open("input","r")
@@ -23,6 +28,7 @@ for lines in f:
     line = lines.rsplit()[0]
     ticket = Ticket()
 
+    X = Range([0,7])
     Y = Range([0,127])
 
     for pos in line[:-3]:
@@ -36,7 +42,6 @@ for lines in f:
     elif (line[6] == back):
         ticket.column = max([Y.low,Y.high])
 
-    X = Range([0,7])
 
     for pos in line[-3:]:
         if (pos == left):
@@ -44,10 +49,10 @@ for lines in f:
         elif (pos == right):
             X.low = X.low + ceil((X.high - X.low)/2)
     
-    if (line[9] == right):
-        ticket.row = max([X.low,X.high])
-    elif (line[9] == left):
-        ticket.row = min([X.low,X.high])
+    if (line[-1:] == right):
+        ticket.row = X.max()
+    elif (line[-1:] == left):
+        ticket.row = X.min()
 
 
     ticket.id = ticket.column * 8 + ticket.row
