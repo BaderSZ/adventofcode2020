@@ -42,7 +42,6 @@ for lines in f:
     elif (line[6] == back):
         ticket.column = max([Y.low,Y.high])
 
-
     for pos in line[-3:]:
         if (pos == left):
             X.high = X.low + floor((X.high - X.low)/2)
@@ -54,11 +53,11 @@ for lines in f:
     elif (line[-1:] == left):
         ticket.row = X.min()
 
-
     ticket.id = ticket.column * 8 + ticket.row
     
     if (ticket.id > result):
         result = ticket.id
+
 
 print("Result = ", result)
 f.close()
