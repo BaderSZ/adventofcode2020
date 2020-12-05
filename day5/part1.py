@@ -13,11 +13,11 @@ class Ticket(object):
 
 class Range(object):
     def __init__(self, _range_):
-        self.low =  _range_[0]
+        self.low  =  _range_[0]
         self.high = _range_[1]
-    def max(self):
+    def max(self) -> int:
         return max([self.low, self.high])
-    def min(self):
+    def min(self) -> int:
         return min([self.low, self.high])
 
 
@@ -28,34 +28,34 @@ for lines in f:
     line = lines.rsplit()[0]
     ticket = Ticket()
 
-    X = Range([0,7])
-    Y = Range([0,127])
+    X = Range([0, 7])
+    Y = Range([0, 127])
 
     for pos in line[:-3]:
-        if (pos == front):
+        if pos == front:
             Y.high = Y.low + floor((Y.high - Y.low)/2)
-        elif (pos == back):
+        elif pos == back:
             Y.low = Y.low + ceil((Y.high - Y.low)/2)
 
-    if (line[6] == front):
-        ticket.column = min([Y.low,Y.high])
-    elif (line[6] == back):
-        ticket.column = max([Y.low,Y.high])
+    if line[6] == front:
+        ticket.column = min([Y.low, Y.high])
+    elif line[6] == back:
+        ticket.column = max([Y.low, Y.high])
 
     for pos in line[-3:]:
-        if (pos == left):
+        if pos == left:
             X.high = X.low + floor((X.high - X.low)/2)
-        elif (pos == right):
+        elif pos == right:
             X.low = X.low + ceil((X.high - X.low)/2)
-    
-    if (line[-1:] == right):
+
+    if line[-1:] == right:
         ticket.row = X.max()
-    elif (line[-1:] == left):
+    elif line[-1:] == left:
         ticket.row = X.min()
 
     ticket.id = ticket.column * 8 + ticket.row
-    
-    if (ticket.id > result):
+
+    if ticket.id > result:
         result = ticket.id
 
 
