@@ -13,7 +13,8 @@ class Categories(Enum):
 eye_colors = ["brn","amb","grn","blu","hzl","gry","oth"]
 # Add 2 newlines to 'input' for easier processing
 
-f = open("input", "r")
+with open("input", "r") as f:
+    inp = f.readlines()
 
 def check_data_validity(key, var):
     if ((key == Categories.byr.value) and (1920 <= int(var) <= 2002)):
@@ -56,7 +57,7 @@ def check_pass_validity(p):
 passport = []
 valid = 0
 
-for line in f:
+for line in inp:
     if (line == "\n"):
         if(check_pass_validity(passport) == True):
             valid += 1

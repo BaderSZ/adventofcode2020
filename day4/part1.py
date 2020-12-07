@@ -11,8 +11,9 @@ class Categories(Enum):
 
 # Add 2 newlines to 'input' for easier processing
 
-f = open("input", "r")
-# f.close()
+with open("input", "r") as f:
+    inp = f.readlines()
+
 def check_validity(p):
     passscore = 0
 
@@ -27,7 +28,7 @@ def check_validity(p):
 passport = []
 valid = 0
 
-for line in f:
+for line in inp:
     if (line == "\n"):
         if(check_validity(passport) == True):
             valid += 1
