@@ -1,8 +1,9 @@
-f = open("input","r")
+with open("input","r") as f:
+    inp = f.readlines()
 
 res = 0
 
-for line in f:
+for line in inp:
     arr = line.split(" ")
 
     rang = arr[0].split("-")
@@ -21,5 +22,3 @@ for line in f:
         res = res+ 1   
 
 print("Result: ", res)
-
-f.close()
