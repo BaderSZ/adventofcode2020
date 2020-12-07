@@ -1,13 +1,13 @@
-
-f = open("input","r")
-
 arr = []
 b = False
 
-for line in f.readlines():
-    arr += [int(line.rstrip("\n"))]
+with open("input","r") as f:
+    for i in f.readlines():
+            arr = arr + [int(i.rstrip("\n"))]
+
 
 length = len(arr)
+
 
 for i in range(0,length):
     for j in range(0,length):

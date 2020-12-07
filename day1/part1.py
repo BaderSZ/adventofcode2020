@@ -1,14 +1,16 @@
 # use vim regex ":%s/\n/,/g", add [ and ] at beginning and end
 
-f = open("input","r")
-
 arr = []
+
+with open("input","r") as f:
+    for i in f.readlines():
+            arr = arr + [int(i.rstrip("\n"))]
+
 b = False
 
-for line in f.readlines():
-    arr += [int(line.rstrip("\n"))]
 
 length = len(arr)
+
 
 for i in range(0,length):
     for j in range(0,length):
@@ -17,5 +19,3 @@ for i in range(0,length):
             b = True
     if (b):
         break
-
-f.close()
