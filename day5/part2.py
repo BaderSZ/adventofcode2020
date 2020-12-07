@@ -23,9 +23,10 @@ class Range(object):
         return min([self.low, self.high])
 
 
-f = open("input", "r")
+with open("input","r") as f:
+    inp = f.readlines()
 
-for lines in f:
+for lines in inp:
     line = lines.rsplit()[0]
     ticket = Ticket()
 
