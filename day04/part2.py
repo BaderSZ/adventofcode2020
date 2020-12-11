@@ -68,4 +68,3 @@ for line in inp:
 
 print("Result = ", valid)
 
-f.close()
