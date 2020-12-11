@@ -66,7 +66,6 @@ def do_seats(matr: List[List[str]]) -> (List[List[str]], bool):
     return m, changed
 
 
-print(inp)
 inp = first_run(inp)
 
 
