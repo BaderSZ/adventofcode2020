@@ -18,4 +18,3 @@ for i in range(0,length):
         if (b):
             break
 
-f.close()

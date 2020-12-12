@@ -70,5 +70,3 @@ for i in range(128):
     if b:
         break
 
-
-f.close()
