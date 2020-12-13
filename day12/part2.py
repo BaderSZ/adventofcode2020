@@ -10,7 +10,7 @@ class Direction(Enum):
     west = "W"
 
 class Rotation(Enum):
-    left  = "L"
+    left = "L"
     right = "R"
 
 class Move(Enum):
@@ -22,7 +22,7 @@ class Waypoint(object):
         self.pos_north = pos_north
         self.pos_east = pos_east
         self.unit_north = unit_north
-        self.unit_east  = unit_east
+        self.unit_east = unit_east
 
     def rotate_facing(self, d: str):
         if d == Rotation.right.value:
@@ -74,3 +74,4 @@ for i in inp:
 
 
 print("Result = ", abs(waypoint.pos_east) + abs(waypoint.pos_north))
+
