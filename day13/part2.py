@@ -1,5 +1,3 @@
-import re
-from copy import deepcopy
 
 inp = []
 
@@ -20,3 +18,4 @@ for id, i in busses:
     prod = prod * id
 
 print("Result = ", time)
+
