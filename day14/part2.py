@@ -40,7 +40,7 @@ def apply_mask(b: List[int], mask: List[str]) -> List[str]:
     return res
 
 
-with open("test", "r") as f:
+with open("input", "r") as f:
     """Create a dict (mask: str, [vals]: List[int]) for each group."""
     cmask = ""
     mem = {}

@@ -1,5 +1,6 @@
 from typing import List
 import re
+from copy import deepcopy
 
 regex = r"[^[]*\[([^]]*)\]"
 
@@ -19,7 +20,7 @@ def convert_to_base(n: List[int]) -> int:
 
 def apply_mask(b: List[int], mask: List[str]) -> List[int]:
     """Loops through and applies mask, returning new binary list"""
-    res = b
+    res = deepcopy(b)
     for j, m in enumerate(mask):
         if m == "X":
             continue
@@ -30,7 +31,7 @@ def apply_mask(b: List[int], mask: List[str]) -> List[int]:
     return res
 
 
-with open("test", "r") as f:
+with open("input", "r") as f:
     """Create a dict {mask: str, [vals]: List[int]} for each group, then sum all vars in list"""
     cmask = ""
     mem = {}
