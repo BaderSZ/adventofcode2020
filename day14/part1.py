@@ -42,8 +42,4 @@ with open("test", "r") as f:
             masked_binary = apply_mask(convert_to_binary(int(i.partition(" = ")[-1])), cmask)
             mem[re.match(regex, i).groups()[0]] = convert_to_base(masked_binary)
 
-    sum_in_memory = 0
-
-    for key in mem:
-        sum_in_memory = sum_in_memory + mem[key]
-    print("Sum in memory = ", sum_in_memory)
+    print("Sum in memory = ", sum(mem.values()))
