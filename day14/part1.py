@@ -31,7 +31,7 @@ def apply_mask(b: List[int], mask: List[str]) -> List[int]:
 
 
 with open("test", "r") as f:
-    """Create a tuple (mask: str, [vals]: List[int]) for each group. Append to main array inp"""
+    """Create a dict {mask: str, [vals]: List[int]} for each group, then sum all vars in list"""
     cmask = ""
     mem = {}
 
